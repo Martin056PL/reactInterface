@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
-export default class MovieEdit extends Component {
+class MovieEdit extends Component {
     emptyMovie = {
         movieId:'',
         title: '',
@@ -49,7 +49,7 @@ export default class MovieEdit extends Component {
                 body: JSON.stringify(movie),
             });
         } else {
-            await fetch('/api/group', {
+            await fetch('http://localhost:8080/rest/add-movie', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -94,3 +94,5 @@ export default class MovieEdit extends Component {
         </div>
       }
 }
+
+export default withRouter(MovieEdit);

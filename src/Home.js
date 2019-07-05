@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <div>
         <Container fluid>
-          <Button color="link"><Link to="/movies">Manage JUG Tour</Link></Button>
+          <Button color="link"><Link to="/movies">Find your movies!</Link></Button>
         </Container>
       </div>
     );

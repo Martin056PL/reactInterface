@@ -8,6 +8,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MovieList from './MovieList';
 import MovieEdit from './MovieEdit';
+import ActorList from './ActorList';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path='/' exact={true} component={Home}/>
           <Route path='/movies' exact={true} component={MovieList}/>
           <Route path='/movies/:id' exact={true} component={MovieEdit}/>
+          <Route path='/movies/:id/actors' exact={true} component={ActorList}/>
         </Switch>
       </Router>
     )
