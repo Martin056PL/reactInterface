@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
-class MovieEdit extends Component {
+ class MovieEdit extends Component {
     emptyMovie = {
         movieId:'',
         title: '',
@@ -40,7 +40,7 @@ class MovieEdit extends Component {
         const {movie} = this.state;
     
         if(movie.movieId) {
-            await fetch(`http://localhost:8080/rest/update-movie/${movie.movieId}`, {
+            await fetch(`http://localhost:8080/rest/movies/${movie.movieId}`, {
                 method: 'PUT',
                 headers: {
                   'Accept': 'application/json',
@@ -49,7 +49,7 @@ class MovieEdit extends Component {
                 body: JSON.stringify(movie),
             });
         } else {
-            await fetch('http://localhost:8080/rest/add-movie', {
+            await fetch('http://localhost:8080/rest/movies', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -94,5 +94,4 @@ class MovieEdit extends Component {
         </div>
       }
 }
-
 export default withRouter(MovieEdit);

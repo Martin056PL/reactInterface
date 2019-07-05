@@ -16,13 +16,13 @@ class ActorList extends Component {
   componentDidMount() {
     this.setState({isLoading: true});
 
-    fetch(`http://localhost:8080/rest/get-movie-by-id/${this.props.match.params.id}/actors`)
+    fetch(`http://localhost:8080/rest/movies/${this.props.match.params.id}/actors`)
       .then(response => response.json())
       .then(data => this.setState({actors: data, isLoading: false}));
   }
 
   async remove(id) {
-    await fetch(`http://localhost:8080/rest/delete-actor-by-id/${id}`, {
+    await fetch(`http://localhost:8080/rest/movies/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -60,16 +60,16 @@ class ActorList extends Component {
       <div>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/actor/new">Add movie</Button>
+            <Button color="success" tag={Link} to="/actor/new">Add actor</Button>
           </div>
           <h3>My movies:</h3>
           <Table className="mt-4">
             <thead>
             <tr>
-              <th width="20%">Title</th>
-              <th width="20%">Type</th>
-              <th width="20%">Date Premiere</th>
-              <th width="10%">Options</th>
+              <th width="20%">First Name</th>
+              <th width="20%">Last Name</th>
+              <th width="20%">Age</th>
+              <th width="10%">Actor Options</th>
             </tr>
             </thead>
             <tbody>

@@ -5,7 +5,7 @@ import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 class ActorEdit extends Component {
 
     emptyActor = {
-        id: '',
+        actorId: '',
         firstName: '',
         lastName: '',
         age: ''
@@ -22,7 +22,7 @@ class ActorEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-          const actor = await (await fetch(`http://localhost:8080/rest/get-actor-by-id/${this.props.match.params.id}`)).json();
+          const actor = await (await fetch(`http://localhost:8080/rest/actors/${this.props.match.params.id}`)).json();
           this.setState({actor: actor});
         }
     }
@@ -30,9 +30,9 @@ class ActorEdit extends Component {
     handleChange(event) {
         const target = event.target;
         const value = target.value;
-        const id = target.id;
+        const actorId = target.id;
         let actor = {...this.state.actor};
-        actor[id] = value;
+        actor[actorId] = value;
         this.setState({actor});
     }
 
@@ -40,8 +40,8 @@ class ActorEdit extends Component {
         event.preventDefault();
         const {actor} = this.state;
     
-        if(actor.id) {
-            await fetch(`http://localhost:8080/rest/get-actor-by-id/${this.props.match.params.id}`, {
+        if(actor.actorId) {
+            await fetch(`http://localhost:8080/rest/actors/${actor.actorId}`, {
                 method: 'PUT',
                 headers: {
                   'Accept': 'application/json',
@@ -50,7 +50,7 @@ class ActorEdit extends Component {
                 body: JSON.stringify(actor),
             });
         } else {
-            await fetch('http://localhost:8080/api/directors/', {
+            await fetch('http://localhost:8080/rest/actors', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -60,7 +60,7 @@ class ActorEdit extends Component {
             });
         }
         
-        this.props.history.push('/actor');
+        this.props.history.push("/movies");
       }
 
     render() {

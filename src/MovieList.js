@@ -16,13 +16,13 @@ class MovieList extends Component {
   componentDidMount() {
     this.setState({isLoading: true});
 
-    fetch('http://localhost:8080/rest/get-all-movies')
+    fetch('http://localhost:8080/rest/movies')
       .then(response => response.json())
       .then(data => this.setState({movies: data, isLoading: false}));
   }
 
   async remove(id) {
-    await fetch(`http://localhost:8080/rest/delete-movie-by-id/${id}`, {
+    await fetch(`http://localhost:8080/rest/movies/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -48,11 +48,11 @@ class MovieList extends Component {
           <td>{movie.type}</td>
           <td>{movie.datePremiere}</td>
           <ButtonGroup>
-          <Button size="sm" color="warning" tag={Link} to={/* "/actors/" + movie.actor.actorId + */ "/movies/" + movie.movieId + "/actors"}>Actors</Button>
+          <Button size="sm" color="warning" tag={Link} to={"/movies/" + movie.movieId + "/actors"}>Actors</Button>
           </ButtonGroup>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={/* "/actors/" + movie.actor.actorId + */ "/movies/" + movie.movieId}>Edit</Button>
+              <Button size="sm" color="primary" tag={Link} to={"/movies/" + movie.movieId}>Edit</Button>
               <Button size="sm" color="danger" onClick={() => this.remove(movie.movieId)}>Delete</Button>
             </ButtonGroup>
           </td>
@@ -73,7 +73,7 @@ class MovieList extends Component {
               <th width="20%">Title</th>
               <th width="20%">Type</th>
               <th width="20%">Date Premiere</th>
-              <th width="20%">Actors</th>
+              <th width="10%">Actors</th>
               <th width="10%">Movie Options</th>
             </tr>
             </thead>
