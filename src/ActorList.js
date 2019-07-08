@@ -20,9 +20,9 @@ class ActorList extends Component {
       .then(response => response.json())
       .then(data => this.setState({actors: data, isLoading: false}));
   }
-
+/*   movies/{movieId}/actors/{actorId} */
   async remove(id) {
-    await fetch(`http://localhost:8080/rest/movies/${id}`, {
+    await fetch(`http://localhost:8080/rest/movies/${this.props.match.params.id}/actors/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
