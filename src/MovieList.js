@@ -52,7 +52,7 @@ class MovieList extends Component {
           </ButtonGroup>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={"/movies/" + movie.movieId + "/actors"}>Edit</Button>
+              <Button size="sm" color="primary" tag={Link} to={"/movies/" + movie.movieId}>Edit</Button>
               <Button size="sm" color="danger" onClick={() => this.remove(movie.movieId)}>Delete</Button>
             </ButtonGroup>
           </td>

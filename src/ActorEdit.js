@@ -60,7 +60,7 @@ class ActorEdit extends Component {
             });
         }
         
-        this.props.history.push("/movies/" + this.props.match.params.id + "/actors");
+        this.props.history.push("/movies");
       }
 
     render() {
@@ -89,7 +89,7 @@ class ActorEdit extends Component {
                         
                         <FormGroup>
                             <Button color="primary" type="submit">Save</Button>{' '}
-                            <Button color="secondary" tag={Link} to={"/movies/" + this.props.match.params.id + "/actors"}>Cancel</Button>
+                            <Button color="secondary" tag={Link} to="/actors">Cancel</Button>
                         </FormGroup>
                         </Form>
                     </Container>
