@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import MovieEdit from './MovieEdit';
+import MovieList from './MovieList';
 
 class ActorEdit extends Component {
 
@@ -60,7 +62,7 @@ class ActorEdit extends Component {
             });
         }
         
-        this.props.history.push("/movies");
+        this.props.history.push("/movies/" + this.props.match.params.movieId + "/actors");
       }
 
     render() {
@@ -89,7 +91,7 @@ class ActorEdit extends Component {
                         
                         <FormGroup>
                             <Button color="primary" type="submit">Save</Button>{' '}
-                            <Button color="secondary" tag={Link} to="/actors">Cancel</Button>
+                            <Button color="secondary" tag={Link} to={"/movies/" + this.props.match.params.movieId + "/actors"}>Cancel</Button>
                         </FormGroup>
                         </Form>
                     </Container>

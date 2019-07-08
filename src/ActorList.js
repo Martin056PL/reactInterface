@@ -60,9 +60,9 @@ class ActorList extends Component {
       <div>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/actor/new">Add actor</Button>
+            <Button color="success" tag={Link} to={"/movies/" + this.props.match.params.id + "/actors/new"}>Add actor</Button>
           </div>
-          <h3>My movies:</h3>
+          <h3>My actors:</h3>
           <Table className="mt-4">
             <thead>
             <tr>
