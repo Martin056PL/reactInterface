@@ -47,9 +47,11 @@ class MovieList extends Component {
           <td style={{whiteSpace: 'nowrap'}}>{movie.title}</td>
           <td>{movie.type}</td>
           <td>{movie.datePremiere}</td>
+          <td>
           <ButtonGroup>
           <Button size="sm" color="warning" tag={Link} to={"/movies/" + movie.movieId + "/actors"}>Actors</Button>
           </ButtonGroup>
+          </td>
           <td>
             <ButtonGroup>
               <Button size="sm" color="primary" tag={Link} to={"/movies/" + movie.movieId}>Edit</Button>
