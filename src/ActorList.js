@@ -60,7 +60,7 @@ class ActorList extends Component {
       <div>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/actor/new">Add actor</Button>
+            <Button color="success" tag={Link} to={"actors/new"}>Add actor</Button>
           </div>
           <h3>My movies:</h3>
           <Table className="mt-4">
