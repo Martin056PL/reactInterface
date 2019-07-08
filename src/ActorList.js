@@ -76,6 +76,9 @@ class ActorList extends Component {
             {actorList}
             </tbody>
           </Table>
+          <div className="float-left">
+          <Button color="secondary" tag={Link} to={"/movies"}>Back to movie list</Button>
+          </div>
         </Container>
       </div>
     );

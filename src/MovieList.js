@@ -55,9 +55,8 @@ class MovieList extends Component {
               <Button size="sm" color="primary" tag={Link} to={"/movies/" + movie.movieId}>Edit</Button>
               <Button size="sm" color="danger" onClick={() => this.remove(movie.movieId)}>Delete</Button>
             </ButtonGroup>
-          </td>
-          
-        </tr>
+          </td> 
+        </tr>  
       )});
 
     return (
@@ -80,7 +79,10 @@ class MovieList extends Component {
             <tbody>
             {movieList}
             </tbody>
-          </Table>
+          </Table> 
+          <div className="float-left">
+          <Button color="secondary" tag={Link} to={"/"}>Back to main menu</Button>
+          </div>
         </Container>
       </div>
     );
