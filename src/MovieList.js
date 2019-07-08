@@ -64,7 +64,7 @@ class MovieList extends Component {
       <div>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/movies/new">Add movie</Button>
+            <Button color="success" tag={Link} to="/movies/new">new movie</Button>
           </div>
           <h3>My movies:</h3>
           <Table className="mt-4">

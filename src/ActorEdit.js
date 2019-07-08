@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import MovieEdit from './MovieEdit';
-import MovieList from './MovieList';
 
 class ActorEdit extends Component {
 
@@ -41,9 +39,10 @@ class ActorEdit extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         const {actor} = this.state;
-    
+       /*  movies/{movieId}/actors/{actorId} */
         if(actor.actorId) {
-            await fetch(`http://localhost:8080/rest/actors/${actor.actorId}`, {
+            await fetch(`http://localhost:8080/rest/movies/${this.props.match.params.movieId}/actors/${actor.actorId}`, {
+                
                 method: 'PUT',
                 headers: {
                   'Accept': 'application/json',
@@ -52,7 +51,7 @@ class ActorEdit extends Component {
                 body: JSON.stringify(actor),
             });
         } else {
-            await fetch('http://localhost:8080/rest/actors', {
+            await fetch(`http://localhost:8080/rest/movies/${this.props.match.params.movieId}/actors`, {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -100,3 +99,8 @@ class ActorEdit extends Component {
 }
 
 export default withRouter(ActorEdit);
+
+
+/* http://localhost:8080/rest/actors/${actor.actorId} */
+
+/* http://localhost:8080/rest/movies/${this.props.match.params.movieId}/actors/${actor.actorId} */

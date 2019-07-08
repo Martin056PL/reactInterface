@@ -21,7 +21,7 @@ import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
     
       async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-          const movie = await (await fetch(`http://localhost:8080/rest/get-movie-by-id/${this.props.match.params.id}`)).json();
+          const movie = await (await fetch(`http://localhost:8080/rest/movies/${this.props.match.params.id}`)).json();
           this.setState({movie: movie});
         }
       }
